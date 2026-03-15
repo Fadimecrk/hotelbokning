@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Hotel - Lyxigt boende i hjärtat av staden</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Startsida -->
+    <section id="home-page" class="page active">
+        <div class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="fade-in">Grand Hotel</h1>
+                <p class="subtitle fade-in-delay">Upplev elegans och komfort i perfekt harmoni</p>
+                <button class="cta-button fade-in-delay-2" onclick="showBookingPage()">Boka nu</button>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="container">
+                <h2>Välkommen till Grand Hotel</h2>
+                <p class="intro-text">
+                    Beläget i hjärtat av staden erbjuder vi en oöverträffad boendeupplevelse. 
+                    Våra eleganta rum och sviter är designade för att ge dig maximal komfort och avkoppling.
+                </p>
+
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">🏨</div>
+                        <h3>Lyxiga rum</h3>
+                        <p>Elegant inredning och moderna bekvämligheter</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🍽️</div>
+                        <h3>Gourmet-restaurang</h3>
+                        <p>Kulinariska upplevelser från världsklass</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💆</div>
+                        <h3>Spa & Wellness</h3>
+                        <p>Avkoppling och föryngring</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bokningssida -->
+    <section id="booking-page" class="page">
+        <div class="booking-header">
+            <button class="back-button" onclick="showHomePage()">← Tillbaka</button>
+            <h1>Boka ditt rum</h1>
+        </div>
+
+        <div class="container">
+            <!-- Formulär -->
+            <div id="booking-form-section" class="booking-content">
+                <div class="room-selection">
+                    <h2>Välj rumtyp</h2>
+                    <div class="rooms">
+                        <div class="room-card" data-room="standard">
+                            <div class="room-image standard-room"></div>
+                            <div class="room-info">
+                                <h3>Standard</h3>
+                                <p class="room-description">Bekvämt rum med moderna faciliteter</p>
+                                <p class="room-price">1 200 kr / natt</p>
+                                <ul class="room-features">
+                                    <li>20 m²</li>
+                                    <li>Queen size säng</li>
+                                    <li>Fri WiFi</li>
+                                    <li>Smart TV</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="room-card" data-room="deluxe">
+                            <div class="room-image deluxe-room"></div>
+                            <div class="room-info">
+                                <h3>Deluxe</h3>
+                                <p class="room-description">Rymligt rum med stadsvy</p>
+                                <p class="room-price">1 800 kr / natt</p>
+                                <ul class="room-features">
+                                    <li>35 m²</li>
+                                    <li>King size säng</li>
+                                    <li>Minibar</li>
+                                    <li>Balkong</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="room-card" data-room="suite">
+                            <div class="room-image suite-room"></div>
+                            <div class="room-info">
+                                <h3>Suite</h3>
+                                <p class="room-description">Lyxig svit med separat vardagsrum</p>
+                                <p class="room-price">3 500 kr / natt</p>
+                                <ul class="room-features">
+                                    <li>60 m²</li>
+                                    <li>King size säng</li>
+                                    <li>Jacuzzi</li>
+                                    <li>Takbar-tillgång</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="booking-form" class="booking-form">
+                    <h2>Dina uppgifter</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">Förnamn *</label>
+                            <input type="text" id="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Efternamn *</label>
+                            <input type="text" id="last-name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-post *</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefonnummer *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="check-in">Incheckning *</label>
+                            <input type="date" id="check-in" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="check-out">Utcheckning *</label>
+                            <input type="date" id="check-out" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guests">Antal gäster</label>
+                        <select id="guests">
+                            <option value="1">1 gäst</option>
+                            <option value="2" selected>2 gäster</option>
+                            <option value="3">3 gäster</option>
+                            <option value="4">4 gäster</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="special-requests">Speciella önskemål</label>
+                        <textarea id="special-requests" rows="4" placeholder="T.ex. extra kuddar, sen incheckning, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">Bekräfta bokning</button>
+                </form>
+            </div>
+
+            <!-- Bekräftelse -->
+            <div id="confirmation-section" class="confirmation hidden">
+                <div class="confirmation-icon">✓</div>
+                <h2>Bokningen är bekräftad!</h2>
+                <p class="confirmation-message">
+                    Tack för din bokning! Vi ser fram emot att välkomna dig till Grand Hotel.
+                </p>
+                <div id="booking-details" class="booking-details"></div>
+                <button class="cta-button" onclick="resetBooking()">Gör ny bokning</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

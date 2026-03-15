@@ -1,0 +1,536 @@
+/* Reset och grundläggande stilar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-gold: #c9a961;
+    --dark-navy: #1a2332;
+    --cream: #f5f3ef;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --light-gray: #e5e7eb;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--dark-navy);
+    background-color: var(--cream);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Sidhantering */
+.page {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Animationer */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.fade-in-delay {
+    animation: fadeIn 1s ease 0.3s forwards;
+    opacity: 0;
+}
+
+.fade-in-delay-2 {
+    animation: fadeIn 1s ease 0.6s forwards;
+    opacity: 0;
+}
+
+/* Hero-sektion */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2a3f5f 0%, #1a2332 100%);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(201, 169, 97, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.1) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(26, 35, 50, 0.4) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+    padding: 40px;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--primary-gold);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* Knappar */
+.cta-button {
+    background: var(--primary-gold);
+    color: var(--dark-navy);
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+}
+
+.cta-button:hover {
+    background: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(201, 169, 97, 0.4);
+}
+
+/* Info-sektion */
+.info-section {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.info-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--dark-navy);
+}
+
+.intro-text {
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 80px;
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+/* Features */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    margin-top: 80px;
+}
+
+.feature {
+    text-align: center;
+    padding: 40px;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--dark-navy);
+}
+
+.feature p {
+    color: var(--gray);
+    font-size: 1.1rem;
+}
+
+/* Bokningssida */
+.booking-header {
+    background: var(--dark-navy);
+    color: var(--white);
+    padding: 40px 0;
+    text-align: center;
+    position: relative;
+}
+
+.booking-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--primary-gold);
+}
+
+.back-button {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 2px solid var(--primary-gold);
+    color: var(--primary-gold);
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.back-button:hover {
+    background: var(--primary-gold);
+    color: var(--dark-navy);
+}
+
+/* Rum-kort */
+.booking-content {
+    padding: 60px 0;
+}
+
+.room-selection h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.rooms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.room-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 3px solid transparent;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.room-card.selected {
+    border-color: var(--primary-gold);
+    box-shadow: 0 8px 30px rgba(201, 169, 97, 0.3);
+}
+
+.room-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.standard-room {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.deluxe-room {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.suite-room {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.room-info {
+    padding: 25px;
+}
+
+.room-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--dark-navy);
+}
+
+.room-description {
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+.room-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    margin-bottom: 15px;
+}
+
+.room-features {
+    list-style: none;
+    padding: 0;
+}
+
+.room-features li {
+    padding: 8px 0;
+    color: var(--gray);
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.room-features li:last-child {
+    border-bottom: none;
+}
+
+.room-features li::before {
+    content: '✓';
+    color: var(--primary-gold);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Formulär */
+.booking-form {
+    background: var(--white);
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.booking-form h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--dark-navy);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-navy);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--light-gray);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    background: var(--primary-gold);
+    color: var(--dark-navy);
+    border: none;
+    padding: 18px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background: var(--dark-navy);
+    color: var(--primary-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Bekräftelse */
+.confirmation {
+    text-align: center;
+    padding: 80px 40px;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 60px auto;
+    animation: fadeIn 0.5s ease;
+}
+
+.confirmation.hidden {
+    display: none;
+}
+
+.confirmation-icon {
+    width: 100px;
+    height: 100px;
+    background: var(--primary-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--dark-navy);
+    margin: 0 auto 30px;
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.confirmation h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--dark-navy);
+}
+
+.confirmation-message {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.booking-details {
+    background: var(--cream);
+    padding: 30px;
+    border-radius: 8px;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.booking-details p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.booking-details strong {
+    color: var(--dark-navy);
+    font-weight: 700;
+}
+
+/* Responsiv design för mindre skärmar */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .info-section h2 {
+        font-size: 2rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-form {
+        padding: 30px 20px;
+    }
+
+    .back-button {
+        position: static;
+        transform: none;
+        margin-bottom: 20px;
+    }
+
+    .rooms {
+        grid-template-columns: 1fr;
+    }
+}
